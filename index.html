@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>CAC - Ejemplo CRUD Python 2023c2</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>CRUD de ingredientes</h2>
+						</div>
+						<div class="col-sm-6">
+							<a href="#addIngredienteModal" class="btn btn-success" data-bs-toggle="modal"><i
+									class="material-icons">&#xE147;</i> <span>Agregar ingrediente</span></a>
+						</div>
+					</div>
+				</div>
+				<table class="table table-sm table-hover" id="tablaDeIngredientes">
+					<thead>
+						<tr>
+							<th class="col-md-3">Nombre</th>
+							<th class="col-md-3">Foto</th>
+							<th class="col-md-3">Color</th>
+							<th class="col-md-1">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Tomate</td>
+							<td><img src="https://fakeimg.pl/200x100/" alt=""></td>
+							<td>Rojo</td>
+							<td>
+								<a href="#editIngredienteModal" class="edit" data-bs-toggle="modal"><i
+										class="material-icons" data-bs-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a href="#deleteIngredienteModal" class="delete" data-bs-toggle="modal"><i
+										class="material-icons" data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="clearfix">
+					<div class="hint-text">Mostrando <b>X</b> de <b>N</b> registros</div>
+					<ul class="pagination">
+						<li class="page-item disabled"><a href="#">Anterior</a></li>
+						<li class="page-item"><a href="#" class="page-link">1</a></li>
+						<li class="page-item"><a href="#" class="page-link">2</a></li>
+						<li class="page-item active"><a href="#" class="page-link">3</a></li>
+						<li class="page-item"><a href="#" class="page-link">4</a></li>
+						<li class="page-item"><a href="#" class="page-link">5</a></li>
+						<li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+	<div id="addIngredienteModal" tabindex="-1" class="modal fade" aria-labelledby="addIngredienteModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form enctype="multipart/form-data">
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="inputNombreIngredienteAdd" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Foto</label>
+							<input type="file" id="inputFotoIngredienteAdd" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Color</label>
+							<input type="color" id="inputColorIngredienteAdd" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-success" value="Agregar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+	<div id="editIngredienteModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="inputNombreIngredienteEdit" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Foto</label>
+							<input type="file" id="inputFotoIngredienteEdit" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Color</label>
+							<input type="color" id="inputColorIngredienteEdit" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-info" value="Actualizar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Delete Modal HTML -->
+	<div id="deleteIngredienteModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form>
+					<div class="modal-body">
+						<p>¿Estás segur@ de borrar este ingrediente?</p>
+						<p class="text-danger"><small>Esta acción no se puede deshacer</small></p>
+					</div>
+					<div class="modal-footer">
+						<input id="inputIDIngredienteABorrar" type="hidden">
+						<input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-danger" value="Borrar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/listarIngredientes.js"></script>
+	<script src="js/agregarIngrediente.js"></script>
+	<script src="js/borrarIngrediente.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
