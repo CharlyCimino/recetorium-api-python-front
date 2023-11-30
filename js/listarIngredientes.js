@@ -25,9 +25,9 @@ const nuevaFila = ingredienteData => {
     <td>${ingredienteData.nombre}</td>
     <td><img src="${URL}${ingredienteData.foto}" alt="Imagen de ${ingredienteData.nombre}"></td>
     <td><div class="muestra-color" style="background-color:${ingredienteData.color}"></div></td>
-        <td>
-            <a href="#editIngredienteModal" class="edit" data-bs-toggle="modal" data-bs-ingrediente-id=${ingredienteData.id}><i class="material-icons" data-bs-toggle="tooltip" title="Edit">&#xE254;</i></a>
-            <a href="#deleteIngredienteModal" class="delete" data-bs-toggle="modal" data-bs-ingrediente-id=${ingredienteData.id}><i class="material-icons" data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
-        </td>
+    <td>
+        <a href="#editIngredienteModal" class="edit" data-bs-toggle="modal" data-bs-ingrediente-id=${ingredienteData.id}><i class="material-icons" data-bs-toggle="tooltip" title="Edit">&#xE254;</i></a>
+        <a href="#deleteIngredienteModal" class="delete" data-bs-toggle="modal" data-bs-ingrediente-id=${ingredienteData.id}><i class="material-icons" data-bs-toggle="tooltip" title="Delete">&#xE872;</i></a>
+    </td>
     `
 }

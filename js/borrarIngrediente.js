@@ -12,7 +12,6 @@ const borrarIngrediente = async (evt) => {
         const opcionesFetch = {
             method: 'DELETE'
         }
-        console.log(`${URL}/api/ingredientes/${id}`)
         const resp = await fetch(`${URL}/api/ingredientes/${id}`, opcionesFetch);
         if (resp.ok) {
             alert("Ingrediente borrado exitosamente");
